@@ -1,0 +1,13 @@
+# git ignore files
+
+# OSX files/dirs
+.DS_Store
+.Trash
+.CFUserTextEncoding
+.creash_*
+
+# svn files
+.subversion
+
+
+*upload/
