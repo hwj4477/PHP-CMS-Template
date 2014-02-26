@@ -30,7 +30,8 @@
 				
 				$this->load->model('product_model');
 						
-				$data['product'] = $this->product_model->getProductAll();
+				$data['product'] = $this->product_model->getProductList();
+				$data['field'] = $this->product_model->getProductFieldData();
 // 				$data['pass'] = sha1(md5('pass123'));
 	
 				$this->load->view('header', $data);

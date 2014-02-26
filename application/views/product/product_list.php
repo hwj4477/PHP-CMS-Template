@@ -21,47 +21,26 @@ function productDelete(_id)
 <div align="center">
 <table class = "list">
 <tr>
-	<td class = "header">No</td>
-	<td class = "header">브랜드</td>
-	<td class = "header">제품종류</td>
-	<td class = "header">제품ID</td>	
-	<td class = "header">제품명</td>
-	<td class = "header">가격</td>
-	<td class = "header">세일</td>
-	<td class = "header">노출</td>
-	<td class = "header">착용</td>
+	<?php foreach($field as $fdata) { ?>
+		<td class = "header"><?=$fdata->name?></td>
+	<?php } ?>
+	
 	<td class = "header">확인</td>
 	<td class = "header">수정</td>
 	<td class = "header">삭제</td>
+	
 </tr>
 	<?php foreach($product as $pcd) { ?>
+		
 		<tr>
-		<td class = "row"><?=$pcd->id?></td>
-		<td class = "row"><?=$pcd->brand?></td>
-		<td class = "row"><?=$pcd->type?></td>
-		<td class = "row"><?=$pcd->product_id?></td>
-		<td class = "row"><?=$pcd->name?></td>
-		<td class = "row"><?=$pcd->price?></td>
-		<?php if($pcd->sale == 1):?>
-			<td class = "enable">O</td>
-		<?php elseif($pcd->sale == 0):?>
-			<td class = "disable">X</td>
-		<?php endif?>
+		<?php foreach($field as $fdata) { ?>
+			<td class = "row"><?=$pcd[$fdata->name]?></td>
+		<?php } ?>
 		
-		<?php if($pcd->post == 1):?>
-			<td class = "enable">O</td>
-		<?php elseif($pcd->post == 0):?>
-			<td class = "disable">X</td>
-		<?php endif?>
-		
-		<?php if($pcd->try == 1):?>
-			<td class = "enable">O</td>
-		<?php elseif($pcd->try == 0):?>
-			<td class = "disable">X</td>
-		<?php endif?>
-		<td class = "row"><input type = button value="확인" onclick="location.href='<?=base_url()?>product_control/productDetail/<?=$pcd->id?>';"></td>
-		<td class = "row"><input type = button value="수정" onclick="location.href='<?=base_url()?>product_control/productModify/<?=$pcd->id?>';"></td>
-		<td class = "row"><input type = button value="삭제" onclick="productDelete(<?= $pcd->id?>);"></td>
+		<td class = "row"><input type = button value="확인" onclick="location.href='<?=base_url()?>product_control/productDetail/<?=$pcd['id']?>';"></td>
+		<td class = "row"><input type = button value="수정" onclick="location.href='<?=base_url()?>product_control/productModify/<?=$pcd['id']?>';"></td>
+		<td class = "row"><input type = button value="삭제" onclick="productDelete(<?= $pcd['id']?>);"></td>
 		</tr>
+		
 	<?php } ?>
 </table>

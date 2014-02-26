@@ -20,6 +20,20 @@
 		{
 			parent::__construct();
 		}
+		
+		function getProductFieldData()
+		{
+			return $this->db->field_data(self::TABLE);
+		}
+		
+		function getProductList()
+		{
+			$this->db->select("*")->from(self::TABLE)->order_by('id', 'desc');
+			
+			$query = $this->db->get();
+
+			return $query->result_array();
+		}
 
 		function getProductAll()
 		{
