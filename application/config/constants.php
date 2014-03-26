@@ -32,7 +32,7 @@ define('DIR_WRITE_MODE', 0777);
 |My constants
 */
 
-define("TITLE", "Content Manager System");
+define("DEFAULT_TITLE", "Content Manager System");
 
 /*
 |--------------------------------------------------------------------------

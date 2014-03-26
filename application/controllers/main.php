@@ -22,13 +22,13 @@
 			if($this->session->userdata("logged_in"))
 			{
 				$data = array();
-				$data['title'] = "Content Manager System";
+				$data['title'] = DEFAULT_TITLE;
 	    		
 				$this->load->view('main_v');
 			}
 			else
 			{
-				$data['title'] = "Content Manager System";
+				$data['title'] = DEFAULT_TITLE;
 
 				$this->load->view('header', $data);
 				$this->load->view('login_v');
@@ -41,7 +41,7 @@
 			if($this->session->userdata("logged_in"))
 	    	{
 	    		$data = array();
-	    		$data['title'] = "Content Manager System";
+	    		$data['title'] = DEFAULT_TITLE;
 	    		 
 	    		$this->load->view('main_v');
 	    	}
@@ -50,7 +50,7 @@
 	    		$password  = $this->input->post('password');
 	    		
 	    		if($username == USER_ID && $password == USER_PASS){
-					$data['title'] = "Content Manager System";
+					$data['title'] = DEFAULT_TITLE;
 	    			 
 	    			$this->load->view('main_v');
 	    		
@@ -71,7 +71,7 @@
 	    	if($this->session->userdata("logged_in"))
 	    	{
 	    		$data = array();
-	    		$data['title'] = 'Content Manager System';
+	    		$data['title'] = DEFAULT_TITLE;
 	    
 	    		$this->load->view('header', $data);
 	    		$this->load->view('main_blank');

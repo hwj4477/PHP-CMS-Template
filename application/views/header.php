@@ -4,7 +4,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title><?php if(isset($title)){echo $title;} else{echo DEFAULT_TITLE;}?></title>
+		<title><?=DEFAULT_TITLE?></title>
 		<!-- Load jQuery -->
 		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 		<script type="text/javascript">

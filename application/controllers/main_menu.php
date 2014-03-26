@@ -19,7 +19,7 @@ class Main_menu extends CI_Controller
 		if($this->session->userdata("logged_in"))
 		{
 			$data = array();
-			$data['title'] = 'Content Manager System';
+			$data['title'] = DEFAULT_TITLE;
 
 			$this->load->view('header', $data);
 			$this->load->view('main_menu');
