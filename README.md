@@ -1,4 +1,4 @@
 PHP-CMS-Templaeate
 ======
 
-Contents Manager System Templeate (php + codeigniter)
+Contents Manager System Template (php + codeigniter)
