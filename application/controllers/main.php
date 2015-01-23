@@ -5,7 +5,7 @@
 | Copyright (c) Content Manager System
 +----------------------------------------------------------------------+
 | 작업일 : 2014-1-15
-| 파일설명 : 'admin' Controller
+| 파일설명 : 'Main' Controller
 | 변경이력 :
 +----------------------------------------------------------------------+
 | 프로그래머: 홍우정
@@ -30,9 +30,9 @@
 			{
 				$data['title'] = DEFAULT_TITLE;
 
-				$this->load->view('header', $data);
+				$this->load->view('common/header', $data);
 				$this->load->view('login_v');
-				$this->load->view('footer', $data);
+				$this->load->view('common/footer', $data);
 			}
 	    }
 	    
@@ -68,18 +68,18 @@
 	    
 	    public function blank()
 	    {
-	    	if($this->session->userdata("logged_in"))
+			if($this->session->userdata("logged_in"))
 	    	{
 	    		$data = array();
 	    		$data['title'] = DEFAULT_TITLE;
-	    
-	    		$this->load->view('header', $data);
-	    		$this->load->view('main_blank');
-	    		$this->load->view('footer', $data);
+	    		 
+	    		$this->load->view('common/header', $data);
+                $this->load->view('main_blank');
+                $this->load->view('common/footer', $data);
 	    	}
 	    	else
 	    	{
-	    		show_error("Error User Check", 401);
+	    		show_error("Login Error", 400);
 	    	}
 	    }
 	    

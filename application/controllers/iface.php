@@ -18,12 +18,9 @@
 	define("REASON_CODE_NOPROBLEM",    0);
 	define("REASON_CODE_ERROR",        99);
 
-	//REQUEST VALUE
-	define("PRODUCT_ID",		'product_id');
-	define("RECOMMAND",			'recommand');
-	
 	class Iface extends CI_Controller{
 		
+		// helper.
 		private function show_result($result_code = RESULT_CODE_FAIL, $reason_code = REASON_CODE_ERROR, $value = null, $extra_message = null)
 		{
 			$data['result'] = $this->buildup_json_result($result_code, $reason_code, $value, $extra_message);
@@ -46,18 +43,19 @@
 			return $result;
 		}
 	 
-	 	public function getProductAll()
+	 	// api
+	 	public function getExample()
 		{
 			$this->load->model('iface_model');
 			
-			$product_result = $this->iface_model->getProductAll();
+			$result = $this->iface_model->getExample();
 			
-			if($product_result)
+			if($result)
 			{
 				$this->show_result(
 							RESULT_CODE_SUCCESS,
 							REASON_CODE_NOPROBLEM,
-							$product_result,
+							$result,
 							null
 					);
 			}
@@ -67,96 +65,9 @@
 						RESULT_CODE_FAIL,
 						REASON_CODE_ERROR,
 						false,
-						"Not Exist Products"
+						"Not Exist Data"
 				);
 			}
-		}
-		
-	 	public function getProductOnSale()
-		{
-			$this->load->model('iface_model');
-			
-			$product_result = $this->iface_model->getProductOnSale();
-			
-			if($product_result)
-			{
-				$this->show_result(
-							RESULT_CODE_SUCCESS,
-							REASON_CODE_NOPROBLEM,
-							$product_result,
-							null
-					);
-			}
-			else
-			{
-				$this->show_result(
-						RESULT_CODE_FAIL,
-						REASON_CODE_ERROR,
-						false,
-						"Not Exist Products"
-				);
-			}
-		}
-		
-	 	public function getProductId()
-		{
-			$product_id = $this->input->post(PRODUCT_ID);
-			
-			$this->load->model('iface_model');
-			
-			$product_result = $this->iface_model->getProduct($product_id);
-			
-			if($product_result)
-			{
-				$this->show_result(
-							RESULT_CODE_SUCCESS,
-							REASON_CODE_NOPROBLEM,
-							$product_result,
-							null
-					);
-			}
-			else
-			{
-				$this->show_result(
-						RESULT_CODE_FAIL,
-						REASON_CODE_ERROR,
-						false,
-						"Not Exist Products"
-				);
-			}
-		}
-		
-	 	public function getProductsRecommand()
-		{
-			$recomm_ids = $this->input->post(RECOMMAND);
-			
-			$this->load->model('iface_model');
-
-			$product_result = $this->iface_model->getProductsRecommand($recomm_ids);
-			
-			if($product_result)
-			{
-				$this->show_result(
-							RESULT_CODE_SUCCESS,
-							REASON_CODE_NOPROBLEM,
-							$product_result,
-							null
-					);
-			}
-			else
-			{
-				$this->show_result(
-						RESULT_CODE_FAIL,
-						REASON_CODE_ERROR,
-						false,
-						"Not Exist Products"
-				);
-			}
-		}
-		
-		public function test()
-		{
-			$this->load->view('mobile/test');
 		}
 	}
 ?>

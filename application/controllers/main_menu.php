@@ -21,9 +21,9 @@ class Main_menu extends CI_Controller
 			$data = array();
 			$data['title'] = DEFAULT_TITLE;
 
-			$this->load->view('header', $data);
+			$this->load->view('common/header', $data);
 			$this->load->view('main_menu');
-			$this->load->view('footer', $data);
+			$this->load->view('common/footer', $data);
 		}
 		else
 		{

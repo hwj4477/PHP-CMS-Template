@@ -6,7 +6,7 @@
 		<title><?=DEFAULT_TITLE?></title>
 	</head>
 	<frameset cols="300, *">
-		<frame src="<?=base_url()?>main_menu" name="menu">
-		<frame src="<?=base_url()?>main/blank" name="content">
+		<frame src="/main_menu" name="menu">
+		<frame src="/main/blank" name="content">
 	</frameset>
 </html>
