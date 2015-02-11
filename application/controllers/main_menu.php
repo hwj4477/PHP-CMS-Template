@@ -12,23 +12,24 @@
 +----------------------------------------------------------------------+
 */
 
-class Main_menu extends CI_Controller
-{
-	public function index()
+	class Main_menu extends CI_Controller
 	{
-		if($this->session->userdata("logged_in"))
+		public function index()
 		{
-			$data = array();
-			$data['title'] = DEFAULT_TITLE;
+			if($this->session->userdata("logged_in"))
+			{
+				$data = array();
+				$data['title'] = DEFAULT_TITLE;
 
-			$this->load->view('common/header', $data);
-			$this->load->view('main_menu');
-			$this->load->view('common/footer', $data);
-		}
-		else
-		{
-			show_error("Login Error", 401);
+				$this->load->view('common/header', $data);
+				$this->load->view('main_menu');
+				$this->load->view('common/footer', $data);
+			}
+			else
+			{
+				show_error("Login Error", 401);
+			}
 		}
 	}
-}
 
+?>

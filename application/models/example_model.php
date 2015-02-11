@@ -26,7 +26,7 @@
 			return $this->db->field_data(self::TABLE);
 		}
 		
-		function getExampleList()
+		function getDataList()
 		{
 			$this->db->select("*")->from(self::TABLE)->order_by('id', 'desc');
 			
@@ -35,7 +35,7 @@
 			return $query->result_array();
 		}
 		
-		function getExample($_id)
+		function getRow($_id)
 		{
 			$this->db->select("*")->from(self::TABLE)->where('id', $_id);
 			
@@ -53,17 +53,17 @@
 			}
 		}
 		
-		function insertExample($data)
+		function insert($data)
 		{
 			return $this->db->insert(self::TABLE, $data);
 		}
 		
-		function updateExample($_id, $data)
+		function update($_id, $data)
 		{
 			return $this->db->where('id', $_id)->update(self::TABLE, $data);
 		}
 		
-		function deleteExample($_id)
+		function delete($_id)
 		{
 			return $this->db->where("id", $_id)->delete(self::TABLE);
 		}

@@ -1,12 +1,6 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" 
-	"http://www.w3.org/TR/html4/frameset.dtd">
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title><?=DEFAULT_TITLE?></title>
-	</head>
-	<frameset cols="300, *">
-		<frame src="/main_menu" name="menu">
-		<frame src="/main/blank" name="content">
-	</frameset>
-</html>
+<div class="common">
+<frameset cols="300, *">
+	<frame src="/main_menu" name="menu">
+	<frame src="/main/blank" name="content">
+</frameset>
+</div>

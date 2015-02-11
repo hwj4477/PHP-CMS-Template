@@ -1,23 +1,18 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title></title>
-</head>
-<body>
+<div class="common">
 <h1><?=$title?></h1>
+<hr/>
 <?
-	echo form_open_multipart("/example_control/exampleInsert/");
+	echo form_open_multipart("/" . $class . "/insert/");
 ?>
-<table>
+<table class="table intra-table table-bordered">
 	<? foreach($field as $fdata) 
 	{ 
 		if($fdata->name != 'id')
 		{
 	?>
 		<tr>
-		<td class = "header"><?=$fdata->name?></td>
-		<td class = "row"><?=form_input($fdata->name, '')?></td>
+		<th class="active" width="100px"><?=$fdata->name?></th>
+		<td><?=form_input($fdata->name, '')?></td>
 		</tr>
 	<?
 		}
@@ -25,9 +20,9 @@
 	 ?>
 </table>
 <br/>
+<button type="submit" class="btn btn-default">Register</button>
 <?
-	echo form_submit("", "Register");
 	echo form_close();
 ?>
-</body>
-</html>
+</div>
+

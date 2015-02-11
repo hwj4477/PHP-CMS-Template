@@ -21,15 +21,16 @@
 		   $this->load->model('example_model');
 		}
 		
-		public function exampleList()
+		public function index()
 		{
 			if($this->session->userdata("logged_in"))
 			{
 				$data = array();
 				$data['title'] = 'Example Manage Page';
 				
-				$data['data'] = $this->example_model->getExampleList();
+				$data['class'] = $this->router->fetch_class();
 				$data['field'] = $this->example_model->getField();
+				$data['data'] = $this->example_model->getDataList();
 	
 				$this->load->view('common/header', $data);
 				$this->load->view('example/example_list', $data);
@@ -41,7 +42,7 @@
 			}
 		}
 		
-		public function exampleRegister()
+		public function register()
 		{
 			if($this->session->userdata("logged_in"))
 			{
@@ -49,6 +50,7 @@
 
 				$data['title'] = 'Example Register Page';
 				
+				$data['class'] = $this->router->fetch_class();
 				$data['field'] = $this->example_model->getField();
 				
 				$this->load->view('common/header', $data);
@@ -61,15 +63,16 @@
 			}
 		}
 		
-		public function exampleDetail($_id = 0)
+		public function detail($_id = 0)
 		{
 			if($this->session->userdata("logged_in"))
 			{
 				$data = array();
 				$data['title'] = 'Example Detail Page';
 				
-				$data['data'] = $this->example_model->getExample($_id);
+				$data['class'] = $this->router->fetch_class();
 				$data['field'] = $this->example_model->getField();
+				$data['data'] = $this->example_model->getRow($_id);
 				
 				$this->load->view('common/header', $data);
 				$this->load->view('example/example_detail', $data);
@@ -81,15 +84,16 @@
 			}
 		}
 		
-		public function exampleModify($_id = 0)
+		public function modify($_id = 0)
 		{
 			if($this->session->userdata("logged_in"))
 			{
 				$data = array();
 				$data['title'] = 'Example Modify Page';
 				
-				$data['data'] = $this->example_model->getExample($_id);
+				$data['class'] = $this->router->fetch_class();
 				$data['field'] = $this->example_model->getField();
+				$data['data'] = $this->example_model->getRow($_id);
 				
 				$this->load->view('common/header', $data);
 				$this->load->view('example/example_modify', $data);
@@ -101,7 +105,7 @@
 			}
 		}
 		
-		public function exampleDelete($_id = 0)
+		public function delete($_id = 0)
 		{
 			if($this->session->userdata("logged_in"))
 			{
@@ -109,12 +113,13 @@
 				
 				$this->load->model('example_model');
 						
-				if($this->example_model->deleteExample($_id))
+				if($this->example_model->delete($_id))
 				{
 					$data['title'] = 'Example Manage Page';
 					
-					$data['data'] = $this->example_model->getExampleList();
+					$data['class'] = $this->router->fetch_class();
 					$data['field'] = $this->example_model->getField();
+					$data['data'] = $this->example_model->getDataList();
 				
 					$this->load->view('common/header', $data);
 					$this->load->view('example/example_list', $data);
@@ -131,7 +136,7 @@
 			}
 		}
 		
-		public function exampleInsert()
+		public function insert()
 		{
 			if($this->session->userdata("logged_in"))
 			{
@@ -139,12 +144,13 @@
 				
 				$this->load->model('example_model');
 						
-				if($this->example_model->insertExample($this->input->post()))
+				if($this->example_model->insert($this->input->post()))
 				{
 					$data['title'] = 'Example Manage Page';
 					
-					$data['data'] = $this->example_model->getExampleList();
+					$data['class'] = $this->router->fetch_class();
 					$data['field'] = $this->example_model->getField();
+					$data['data'] = $this->example_model->getDataList();
 				
 					$this->load->view('common/header', $data);
 					$this->load->view('example/example_list', $data);
@@ -161,7 +167,7 @@
 			}
 		}
 		
-		public function exampleUpdate($_id)
+		public function update($_id)
 		{
 			if($this->session->userdata("logged_in"))
 			{
@@ -169,12 +175,13 @@
 				
 				$this->load->model('example_model');
 						
-				if($this->example_model->updateExample($_id, $this->input->post()))
+				if($this->example_model->update($_id, $this->input->post()))
 				{
 					$data['title'] = 'Example Manage Page';
 					
-					$data['data'] = $this->example_model->getExampleList();
+					$data['class'] = $this->router->fetch_class();
 					$data['field'] = $this->example_model->getField();
+					$data['data'] = $this->example_model->getDataList();
 				
 					$this->load->view('common/header', $data);
 					$this->load->view('example/example_list', $data);

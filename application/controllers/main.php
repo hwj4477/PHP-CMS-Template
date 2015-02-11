@@ -46,8 +46,8 @@
 	    		$this->load->view('main_v');
 	    	}
 	    	else{
-	    		$username = $this->input->post('username');
-	    		$password  = $this->input->post('password');
+	    		$username = $this->input->post('user_id');
+	    		$password  = $this->input->post('user_pass');
 	    		
 	    		if($username == USER_ID && $password == USER_PASS){
 					$data['title'] = DEFAULT_TITLE;

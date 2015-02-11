@@ -1,0 +1,14 @@
+/*
+ * bootstrap custom
+ */
+.common-table>tbody>tr>td, .common-table>tbody>tr>th, .common-table>tfoot>tr>td, .common-table>tfoot>tr>th, .common-table>thead>tr>td, .common-table>thead>tr>th {padding:10; }
+.common-table>tbody>tr>td p {margin: 0; line-height: 51px;}
+.common-table>tbody>tr>th p {margin: 0; line-height: 51px;}
+
+
+/*
+ * common 
+ */
+.common{
+	margin: 20px;
+}
